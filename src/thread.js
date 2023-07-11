@@ -12,12 +12,12 @@ export const jsonToDat = json => {
   const { title, comments, board } = json.pageProps.threadData.data;
 
   return comments.map(({ body, timestamp, writer }, index) => {
-    const userName = (writer.name) ? `${writer.name}◆${writer.trip}`
-                                 : board.default_name;
+    let name = writer.name ?? board.default_name;
+    name += (writer.trip) ? `◆${writer.trip}` : '';
 
     const date = convertDate(new Date(timestamp * 1000));
 
-    return [ userName,
+    return [ name,
              null, // email
              `${date} ID:${writer.id}`,
              escaping(body),

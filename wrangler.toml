@@ -1,0 +1,9 @@
+name = "talkjp-to-2ch"
+main = "src/worker.js"
+compatibility_date = "2023-07-10"
+
+workers_dev = false
+routes = [
+  { pattern = "talk.jp.lain.im", custom_domain = true },
+  { pattern = "talk.lain.im",    custom_domain = true }
+]
